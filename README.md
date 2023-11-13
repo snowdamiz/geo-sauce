@@ -1,6 +1,13 @@
 # Geo Sauce
 Route clustering and route optimization.
 
+## Table of Contents
+  - [Installation](#installation)
+  - [Usage](#usage)
+      - [Options](#options)
+      - [Default Options](#default-options)
+  - [License](#license)
+
 ## Installation
 ```npm install geo-sauce```
 
