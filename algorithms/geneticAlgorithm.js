@@ -1,7 +1,7 @@
 import { chunkArray, getRandomInt } from '../helpers/arrayManipulation.js'
 import { getFurthestPair, routeDistance } from '../helpers/geometry.js'
 import { nearestNeighborRoute } from './nearestNeighbor.js'
-import { mutate, PMXCrossover, applyMutation } from '../helpers/mutations.js'
+import { mutate, PMXCrossover, applyMutation, selectParent } from '../helpers/mutations.js'
 
 // Genetic algorithm
 export function geneticAlgorithm(coordinates, options) {
@@ -75,21 +75,4 @@ export function geneticAlgorithm(coordinates, options) {
   }
 
   return routes.pop()
-}
-
-function selectParent(population, tournamentSize) {
-  let bestRoute = null
-  let bestDistance = Infinity
-
-  for (let i = 0; i < tournamentSize; i++) {
-    const route = population[getRandomInt(population.length)]
-    const currentDistance = routeDistance(route)
-
-    if (currentDistance < bestDistance) {
-      bestDistance = currentDistance
-      bestRoute = route
-    }
-  }
-
-  return bestRoute
 }

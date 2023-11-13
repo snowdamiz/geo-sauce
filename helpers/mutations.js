@@ -1,4 +1,5 @@
 import { getRandomInt, swap } from "./arrayManipulation.js"
+import { routeDistance } from './geometry.js'
 
 // Apply Mutation
 export function applyMutation(route) {
@@ -52,4 +53,21 @@ export function PMXCrossover(parent1, parent2) {
   }
 
   return child
+}
+
+export function selectParent(population, tournamentSize) {
+  let bestRoute = null
+  let bestDistance = Infinity
+
+  for (let i = 0; i < tournamentSize; i++) {
+    const route = population[getRandomInt(population.length)]
+    const currentDistance = routeDistance(route)
+
+    if (currentDistance < bestDistance) {
+      bestDistance = currentDistance
+      bestRoute = route
+    }
+  }
+
+  return bestRoute
 }
