@@ -16,7 +16,7 @@ Import the main geoSauce function
 
 ```import { geoSauce } from 'geo-sauce'```
 
-Call geoSauce with an array of coordinate pairs [[lat, lng]] and optionally pass in options:
+Call geoSauce with an array of coordinate pairs [[lat, lng]] or geojson and optionally pass in options:
 
 ```const optimizedRoutes = geoSauce(coordinates, options)```
 
