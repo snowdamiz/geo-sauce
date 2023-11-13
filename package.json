@@ -5,7 +5,7 @@
   "type": "module",
   "main": "geosauce.js",
   "author": "snowdamiz",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "geo",
     "clustering",
