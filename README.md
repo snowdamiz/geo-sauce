@@ -28,16 +28,16 @@ Geo Sauce accepts the following options:
 
 ```
 const options = {
-  numberOfClusters: 8,
-  generateRoutes: true,
+  numberOfClusters: Number,
+  generateRoutes: Boolean,
   generateRouteOptions: {
-    generations: 1000,
-    populationSize: 100,
-    mutationRate: 0.1,
-    elitismRate: 0.15,
-    maxGenerationsWithoutImprovement: 200,
-    showLogs: true,
-    tournamentSize: 10,
+    generations: Number,
+    populationSize: Number,
+    mutationRate: Number,
+    elitismRate: Number,
+    maxGenerationsWithoutImprovement: Number,
+    showLogs: Boolean,
+    tournamentSize: Number,
   }
 }
 ```
