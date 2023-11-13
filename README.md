@@ -4,12 +4,16 @@ Route clustering and route optimization.
 ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
-      - [Clustering](#clustering)
-        - [Clustering Options](#clustering-options)
-        - [Default Clustering Options](#default-clustering-options)
+      - [Radial KMean Clustering](#radial-kmean-clustering)
+        - [Radial KMean Clustering Options](#clustering-options)
+        - [Default Radial KMean Clustering Options](#default-clustering-options)
+      - [Balanced Clustering](#balanced-clustering)
+        - [Balanced Clustering Options](#clustering-options)
+        - [Default Balanced Clustering Options](#default-clustering-options)
       - [Optimize Routes](#optimize-routes)
         - [Route Optimization Options](#route-optimization-options)
         - [Default Route Optimization Options](#default-route-optimization-options)
+      - [Calculate Centroid](#calculate-centroid)
   - [License](#license)
 
 ## Installation
@@ -17,8 +21,8 @@ Route clustering and route optimization.
 
 ## Usage
 
-### Clustering
-Import clustering function
+### Radial KMean Clustering
+Import function
 
 ```import { radialKMeansClustering } from 'geo-sauce'```
 
@@ -26,28 +30,35 @@ Call radialKMeansClustering with an array of coordinate pairs `[[lat, lng]]` or 
 
 ```const routes = radialKMeansClustering(coordinates, options)```
 
-This will return an array of optimized routes through the clustered coordinates.
-
-#### Clustering Options
+#### Radial KMean Clustering Options
 ```const options = Number```
 
-#### Default Clustering Options
+#### Default Radial KMean Clustering
 ```const options = 8```
 
+### Balanced Clustering
+Import function
+
+```import { balancedClustering } from 'geo-sauce'```
+
+Call balancedClustering with an array of coordinate pairs `[[lat, lng]]` or `geojson` and optionally pass in options
+
+```const routes = balancedClustering(coordinates, options)```
+
+#### Balanced Clustering Options
+```const options = Number```
+
+#### Default Balanced Clustering Options
+```const options = 8```
 
 ### Optimize Routes
-Import route optimization function
+Import function
   
 ```import { optimizeRoute } from 'geo-sauce'```
 
 Call the optimizeRoute function with an array of coordinate pairs `[[lat, lng]]` or `geojson` and optionally pass in options
 
 ```const optimizedRoute = optimizeRoute(coordinates, options)```
-
-This will return an optimized route.
-
-**numberOfClusters:** The number of clusters to generate. Must be a positive integer.
-
 
 #### Route Optimization Options
 ```
@@ -75,21 +86,14 @@ const options = {
 }
 ```
 
-**generateRoutes:** Generate optimized routes through the clusters.
+### Calculate Center Point
+Import function
+  
+```import { calculateCentroid } from 'geo-sauce'```
 
-**generations:** Number of generations for the genetic algorithm.
+Call the calculateCentroid function with an array of coordinate pairs `[[lat, lng]]` or `geojson`
 
-**populationSize:** Number of routes per generation.
-
-**mutationRate:** Chance of mutation per gene in a route.
-
-**elitismRate:** Percentage of top routes automatically carried to next generation.
-
-**maxGenerationsWithoutImprovement:** Maximum generations without improvement before algorithm terminates.
-
-**showLogs:** Logs the progress of the genetic algorithm if true.
-
-**tournamentSize:** Number of routes selected for tournament selection in genetic algorithm.
+```const optimizedRoute = calculateCentroid(coordinates)```
 
 ## License
 MIT License
