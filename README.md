@@ -43,13 +43,21 @@ const options = {
 ```
 
 **numberOfClusters:** The number of clusters to generate. Must be a positive integer.
-**generateRoutes:** Generate optimized routes through the clusters. Defaults to true. Set to false for just clustering.
+
+**generateRoutes:** Generate optimized routes through the clusters.
+
 **generations:** Number of generations for the genetic algorithm.
+
 **populationSize:** Number of routes per generation.
+
 **mutationRate:** Chance of mutation per gene in a route.
+
 **elitismRate:** Percentage of top routes automatically carried to next generation.
+
 **maxGenerationsWithoutImprovement:** Maximum generations without improvement before algorithm terminates.
+
 **showLogs:** Logs the progress of the genetic algorithm if true.
+
 **tournamentSize:** Number of routes selected for tournament selection in genetic algorithm.
 
 #### Default Options
