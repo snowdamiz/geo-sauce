@@ -17,10 +17,15 @@ const defaultOptions = {
 
 // Main Call
 function geoSauce(coordinates, options = defaultOptions) {
-  const clusters = radialKMeansClustering(coordinates, options.numberOfClusters)
+  const normalizedCoordinates = Array.isArray(coordinates[0])
+    ? coordinates
+    : coordinates.features.map(feature => feature.geometry.coordinates)
+
+  const clusters = radialKMeansClustering(normalizedCoordinates, options.numberOfClusters)
   if (!options.generateRoutes) return clusters
 
   const optimizedRoutes = []
+
   for (const cluster of clusters) {
     const optimizedRoute = geneticAlgorithm(cluster, options.generateRouteOptions)[0]
     optimizedRoutes.push(optimizedRoute)

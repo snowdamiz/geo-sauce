@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Geo clustering and route optimization",
   "type": "module",
-  "main": "index.js",
+  "main": "geosauce.js",
   "author": "snowdamiz",
   "license": "ISC"
 }
