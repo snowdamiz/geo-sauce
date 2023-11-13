@@ -74,7 +74,7 @@ export function geneticAlgorithm(coordinates, options) {
     routes.push(population[0])
   }
 
-  return routes
+  return routes.pop()
 }
 
 function selectParent(population, tournamentSize) {
