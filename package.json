@@ -1,9 +1,15 @@
 {
   "name": "geo-sauce",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Geo clustering and route optimization",
   "type": "module",
   "main": "geosauce.js",
   "author": "snowdamiz",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": [
+    "geo",
+    "clustering",
+    "routes",
+    "optimization"
+  ]
 }
