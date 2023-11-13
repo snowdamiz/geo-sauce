@@ -1,3 +1,5 @@
+import { normalizeGeo } from './normalizeGeo.js'
+
 // Get the distance between two points
 export function distance(point1, point2) {
   const [x1, y1] = point1
@@ -7,8 +9,10 @@ export function distance(point1, point2) {
 
 // Get most center coordinate
 export function calculateCentroid(coords) {
-  const sum = coords.reduce((acc, [x, y]) => [acc[0] + x, acc[1] + y], [0, 0])
-  return [sum[0] / coords.length, sum[1] / coords.length]
+  const normalizedCoordinates = normalizeGeo(coords)
+
+  const sum = normalizedCoordinates.reduce((acc, [x, y]) => [acc[0] + x, acc[1] + y], [0, 0])
+  return [sum[0] / normalizedCoordinates.length, sum[1] / normalizedCoordinates.length]
 }
 
 // Get the radial distance

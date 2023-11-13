@@ -4,45 +4,76 @@ Route clustering and route optimization.
 ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
-      - [Options](#options)
-      - [Default Options](#default-options)
+      - [Clustering](#clustering)
+        - [Clustering Options](#clustering-options)
+        - [Default Clustering Options](#default-clustering-options)
+      - [Optimize Routes](#optimize-routes)
+        - [Route Optimization Options](#route-optimization-options)
+        - [Default Route Optimization Options](#default-route-optimization-options)
   - [License](#license)
 
 ## Installation
 ```npm install geo-sauce```
 
 ## Usage
-Import the main geoSauce function
 
-```import { geoSauce } from 'geo-sauce'```
+### Clustering
+Import clustering function
 
-Call geoSauce with an array of coordinate pairs `[[lat, lng]]` or `geojson` and optionally pass in options:
+```import { radialKMeansClustering } from 'geo-sauce'```
 
-```const optimizedRoutes = geoSauce(coordinates, options)```
+Call radialKMeansClustering with an array of coordinate pairs `[[lat, lng]]` or `geojson` and optionally pass in options
+
+```const routes = radialKMeansClustering(coordinates, options)```
 
 This will return an array of optimized routes through the clustered coordinates.
-If you only want clustering without route optimization, pass `generateRoutes: false` in the options.
 
-#### Options
-Geo Sauce accepts the following options:
+#### Clustering Options
+```const options = Number```
 
+#### Default Clustering Options
+```const options = 8```
+
+
+### Optimize Routes
+Import route optimization function
+  
+```import { optimizeRoute } from 'geo-sauce'```
+
+Call the optimizeRoute function with an array of coordinate pairs `[[lat, lng]]` or `geojson` and optionally pass in options
+
+```const optimizedRoute = optimizeRoute(coordinates, options)```
+
+This will return an optimized route.
+
+**numberOfClusters:** The number of clusters to generate. Must be a positive integer.
+
+
+#### Route Optimization Options
 ```
 const options = {
-  numberOfClusters: Number,
-  generateRoutes: Boolean,
-  generateRouteOptions: {
-    generations: Number,
-    populationSize: Number,
-    mutationRate: Number,
-    elitismRate: Number,
-    maxGenerationsWithoutImprovement: Number,
-    showLogs: Boolean,
-    tournamentSize: Number,
-  }
+  generations: Number,
+  populationSize: Number,
+  mutationRate: Number,
+  elitismRate: Number,
+  maxGenerationsWithoutImprovement: Number,
+  showLogs: Boolean,
+  tournamentSize: Number,
 }
 ```
 
-**numberOfClusters:** The number of clusters to generate. Must be a positive integer.
+#### Default Route Optimization Options
+```
+const options = {
+  generations: 1000,
+  populationSize: 100, 
+  mutationRate: 0.1,
+  elitismRate: 0.15,
+  maxGenerationsWithoutImprovement: 200,
+  showLogs: false,
+  tournamentSize: 10
+}
+```
 
 **generateRoutes:** Generate optimized routes through the clusters.
 
@@ -59,25 +90,6 @@ const options = {
 **showLogs:** Logs the progress of the genetic algorithm if true.
 
 **tournamentSize:** Number of routes selected for tournament selection in genetic algorithm.
-
-#### Default Options
-If no options are passed, Geo Sauce will use these defaults:
-
-```
-{
-  numberOfClusters: 8,
-  generateRoutes: true,
-  generateRouteOptions: {
-    generations: 1000,
-    populationSize: 100, 
-    mutationRate: 0.1,
-    elitismRate: 0.15,
-    maxGenerationsWithoutImprovement: 200,
-    showLogs: false,
-    tournamentSize: 10
-  }
-}
-```
 
 ## License
 MIT License
