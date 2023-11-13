@@ -40,6 +40,7 @@ export function getFurthestPair(coordinates) {
   return pair
 }
 
+// Calculate route distance
 export function routeDistance(route) {
   let total = 0
 
@@ -50,6 +51,7 @@ export function routeDistance(route) {
   return total
 }
 
+// Get the nearest neighbor route
 export function nearestNeighborRoute(startCoord, coordinates) {
   const route = [startCoord]
   let remainingCoords = coordinates.filter(coord => coord[0] !== startCoord[0] || coord[1] !== startCoord[1])
@@ -64,6 +66,7 @@ export function nearestNeighborRoute(startCoord, coordinates) {
   return route
 }
 
+// Get the nearest coordinate
 function findNearest(coord, remainingCoords) {
   let nearest = remainingCoords[0]
   let minDist = distance(coord, nearest)
