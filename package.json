@@ -1,6 +1,6 @@
 {
   "name": "geo-sauce",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Geo clustering and route optimization",
   "type": "module",
   "main": "geosauce.js",
