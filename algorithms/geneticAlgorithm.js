@@ -1,6 +1,6 @@
 import { chunkArray, getRandomInt } from '../helpers/arrayManipulation.js'
 import { getFurthestPair, routeDistance } from '../helpers/geometry.js'
-import { nearestNeighborRoute } from '../algorithms/nearestNeighbor.js'
+import { nearestNeighborRoute } from './nearestNeighbor.js'
 import { mutate, PMXCrossover, applyMutation } from '../helpers/mutations.js'
 
 // Genetic algorithm
